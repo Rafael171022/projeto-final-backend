@@ -16,28 +16,40 @@ public class HelpController {
     public List<ApiHelp> getApiHelp() {
         return Arrays.asList(
                 new ApiHelp(
-                        "/api/emissao/total",
+                        "/api/emissao/calc/veiculo",
                         "POST",
-                        "Calcula as emissões de carbono com base em eletricidade, combustível de carro e viagens aéreas.",
-                        Arrays.asList("kWh: double", "liters: double", "km: double", "isInternational: boolean")
+                        "Calcula as emissões de carbono com base no km que o carro ira percorrer.",
+                        Arrays.asList("km: double")
                 ),
                 new ApiHelp(
-                        "/api/emissao/eletricidade",
-                        "POST",
-                        "Calcula as emissões de carbono com base no consumo de eletricidade.",
-                        Arrays.asList("kWh: double")
-                ),  
-                new ApiHelp(
-                        "/api/emissao/carro",
-                        "POST",
-                        "Calcula as emissões de carbono com base no consumo de combustível do carro.",
-                        Arrays.asList("liters: double")
+                        "/api/emissao/veiculo",
+                        "GET",
+                        "Traz todos os veiculos poluentes cadatrados ",
+                        Arrays.asList("All")
                 ),
                 new ApiHelp(
-                        "/api/emissao/aviao",
+                        "/api/emissao/veiculo/{id}",
+                        "GET",
+                        "Traz todos os veiculos poluentes cadatrados ",
+                        Arrays.asList("Passar id na Url")
+                ),
+                new ApiHelp(
+                        "/api/emissao/veiculo",
                         "POST",
-                        "Calcula as emissões de carbono com base na distância percorrida em voos.",
-                        Arrays.asList("km: double", "isInternational: boolean")
+                        "Cadastrar um veiculo poluidor",
+                        Arrays.asList("tipoCombustivel: String","tipoVeiculo: String","ppLitro: double")
+                ),
+                new ApiHelp(
+                        "/api/emissao/veiculo/{id}",
+                        "PUT",
+                        "Atualizar um veiculo poluidor pelo id",
+                        Arrays.asList("tipoCombustivel: String","tipoVeiculo: String","ppLitro: double")
+                ),
+                new ApiHelp(
+                        "/api/emissao/veiculo/{id}",
+                        "DELETE",
+                        "Deleta um veiculo poluidor pelo id",
+                        Arrays.asList("Passar id na Url")
                 )
         );
     }
