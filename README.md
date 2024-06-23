@@ -104,7 +104,7 @@ Atualiza os detalhes de um veículo poluente existente.
 PUT /api/emissao/veiculo/{id}
 ```
 
-Deleta um veículo poluente específico com base no ID fornecido.
+Deleta um veículo poluente específico com base no ID fornecedido.
 ```
 DELETE /api/emissao/veiculo/{id}
 ```
