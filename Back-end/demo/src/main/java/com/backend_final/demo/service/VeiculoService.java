@@ -26,7 +26,15 @@ public class VeiculoService {
         return veiculoRepository.save(modelVeiculo);
     }
 
-    public void deleteById(String id) {
-        veiculoRepository.deleteById(id);
+//    public void deleteById(String id) {
+//           veiculoRepository.deleteById(id);
+//    }
+    public void deleteById(String id) throws EntityNotFoundException {
+        Optional<ModelVeiculo> veiculo = veiculoRepository.findById(id);
+        if (veiculo.isPresent()) {
+            veiculoRepository.deleteById(id);
+        } else {
+            throw new EntityNotFoundException("Veículo com ID " + id + " não encontrado.");
+        }
     }
 }
