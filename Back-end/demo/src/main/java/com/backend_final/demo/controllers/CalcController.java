@@ -13,8 +13,11 @@ public class CalcController {
     @Autowired
     private CalcService calcService;
 
+
     @PostMapping("/{id}")
-    public double calcularEmissao(@PathVariable String id,@Valid @RequestBody CalcValidation calcValidation) {
-        return calcService.calcularEmissao(id, calcValidation.getKmRodados());
+    public String calcularEmissao(@PathVariable String id, @Valid @RequestBody CalcValidation calcValidation) {
+        double emissao = calcService.calcularEmissao(id, calcValidation.getKmRodados());
+        return emissao + " total de kg CO2 emitido por litro";
     }
+
 }

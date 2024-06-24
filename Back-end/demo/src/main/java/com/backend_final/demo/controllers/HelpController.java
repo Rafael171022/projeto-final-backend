@@ -37,7 +37,7 @@ public class HelpController {
                         "/api/emissao/veiculo",
                         "POST",
                         "Cadastrar um veiculo poluidor",
-                        Arrays.asList("tipoCombustivel: String","tipoVeiculo: String","ppLitro: double")
+                        Arrays.asList("tipoCombustivel: String","tipoVeiculo: String","ppLitro: double =  1 litro de gasolina = 1 x 0,82 x 0,75 x 3,7 = total de kg CO2 emitido por litro")
                 ),
                 new ApiHelp(
                         "/api/emissao/veiculo/{id}",
