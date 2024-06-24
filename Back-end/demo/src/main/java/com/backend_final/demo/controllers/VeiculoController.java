@@ -40,11 +40,6 @@ public class VeiculoController {
         return veiculoService.save(modelVeiculo);
     }
 
-//    @DeleteMapping("/veiculo/{id}")
-//    public String  deleteById(@Valid @PathVariable String id) {
-//        veiculoService.deleteById(id);
-//        return "Veiculo deletado com sucesso!";
-//    }
 
     @DeleteMapping("/veiculo/{id}")
     public String deleteById(@PathVariable String id) {
@@ -55,6 +50,6 @@ public class VeiculoController {
         } else {
             return "Veiculo não encontrado";
         }
-}
+    }
 
 }
