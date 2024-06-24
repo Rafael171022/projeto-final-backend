@@ -18,6 +18,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+//O teste unitário Verifica a integração entre o CalcController e o CalcService usando Mockito e Spring MVC Test.
 @ExtendWith(MockitoExtension.class) //Aqui ele halibilita o uso do Mockito com JUnit 5
 public class CalcControllerTest {
 
@@ -34,6 +35,7 @@ public class CalcControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 
+    //Configura um ambiente de teste com mocks, simula uma requisição POST para calcular a emissão de poluentes de um veículo
     @Test
     public void testCalcularEmissao() throws Exception {
         // Dados de exemplo
@@ -50,7 +52,7 @@ public class CalcControllerTest {
                         .content(requestBody))
                 .andExpect(status().isOk()); //Verifica se o Status da resposta é OK (200).
 
-        // Por fim verifica se o serviço foi chamado com os parâmetros esperados
+        // verifica se o serviço foi chamado com os parâmetros esperados e valida o status HTTP da resposta.
         verify(service).calcularEmissao(veiculoId, kmRodados);
     }
 }
